@@ -3,7 +3,7 @@ Real-Time Loyalty Points Accrual &amp; Redemption
 
 ## Architecture diagram
 
-![Architecture Diagram](real-time-loyalty-platform.drawio.png "Architecture Diagram")
+![Architecture Diagram](docs/real-time-loyalty-platform.drawio.png "Architecture Diagram")
 
 ## Tech Stack
 AWS & Cloud-Native Components:
