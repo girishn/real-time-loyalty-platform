@@ -11,14 +11,15 @@ terraform {
     }
   }
 }
+
 provider "aws" {
   region = var.aws_region
 }
 
 provider "kafka" {
-  bootstrap_servers = [var.bootstrap_servers]
-  sasl_username     = var.kafka_username
-  sasl_password     = var.kafka_password
+  bootstrap_servers = [module.msk_cluster.bootstrap_brokers_tls]
+  sasl_username     = var.msk_scram_username
+  sasl_password     = var.msk_scram_password
   sasl_mechanism    = "scram-sha512"
   security_protocol = "sasl_ssl"
 }

@@ -1,9 +1,10 @@
-provider "kafka" {
-  bootstrap_servers = [var.bootstrap_servers]
-  sasl_username     = var.kafka_username
-  sasl_password     = var.kafka_password
-  sasl_mechanism    = "scram-sha512"
-  security_protocol = "sasl_ssl"
+terraform {
+  required_providers {
+    kafka = {
+      source  = "Mongey/kafka"
+      version = "~> 0.7"
+    }
+  }
 }
 
 locals {
