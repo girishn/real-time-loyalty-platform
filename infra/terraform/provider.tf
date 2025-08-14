@@ -21,5 +21,5 @@ provider "kafka" {
   sasl_username     = var.msk_scram_username
   sasl_password     = var.msk_scram_password
   sasl_mechanism    = "scram-sha512"
-  security_protocol = "sasl_ssl"
+  tls_enabled = true
 }
