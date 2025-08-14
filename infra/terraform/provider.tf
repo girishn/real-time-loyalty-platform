@@ -17,7 +17,7 @@ provider "aws" {
 }
 
 provider "kafka" {
-  bootstrap_servers = [module.msk_cluster.bootstrap_brokers_tls]
+  bootstrap_servers = split(",", module.msk_cluster.bootstrap_brokers_tls)
   sasl_username     = var.msk_scram_username
   sasl_password     = var.msk_scram_password
   sasl_mechanism    = "scram-sha512"
