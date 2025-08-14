@@ -12,3 +12,18 @@ module "ec2_client" {
 
   depends_on = [module.msk_cluster]
 }
+
+module "managed_flink" {
+  source = "./managed_flink"
+
+  environment        = "dev"
+  application_name   = "points-fraud-processor"
+  msk_cluster_name   = module.msk_cluster.msk_cluster_name
+  msk_cluster_arn    = module.msk_cluster.msk_cluster_arn
+  private_subnet_ids    = module.msk_cluster.private_subnet_ids
+  msk_security_group_id = module.msk_cluster.msk_security_group_id
+  kafka_username     = var.msk_scram_username
+  kafka_password     = var.msk_scram_password
+
+  depends_on = [module.msk_cluster]
+}

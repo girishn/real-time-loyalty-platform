@@ -35,4 +35,3 @@ variable "msk_scram_password" {
   type        = string
   sensitive   = true
 }
-
