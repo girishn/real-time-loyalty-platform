@@ -18,5 +18,5 @@ resource "kafka_topic" "topics" {
   replication_factor = each.value.replication_factor
   partitions         = each.value.partitions
   
-  config = each.value.config
+  config = lookup(each.value, "config", null) != null ? each.value.config : {}
 }
