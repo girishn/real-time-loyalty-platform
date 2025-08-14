@@ -1,0 +1,21 @@
+topics:
+  - name: "purchases"
+    partitions: 6
+    replication_factor: 2
+    # config:
+    #   retention.ms: "604800000"  # 7 days
+    #   compression.type: "lz4"
+    #   cleanup.policy: "delete"
+  
+  - name: "points-calculated" 
+    partitions: 12
+    replication_factor: 2
+    # config:
+    #   retention.ms: "2592000000"  # 30 days
+    #   compression.type: "snappy"
+      
+  - name: "fraud-alerts"
+    partitions: 3
+    replication_factor: 2
+    # config:
+    #   retention.ms: "259200000"  # 3 days

@@ -12,3 +12,14 @@ module "ec2_client" {
 
   depends_on = [module.msk_cluster]
 }
+
+module "topics" {
+  source = "./topics"
+  
+  bootstrap_servers = module.msk_cluster.bootstrap_brokers_tls
+  kafka_username    = var.msk_scram_username
+  kafka_password    = var.msk_scram_password
+  environment       = var.environment
+  
+  depends_on = [module.msk_cluster]
+}
